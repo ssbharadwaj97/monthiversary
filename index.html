@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Why You Are Bharadwaj's Aakanksha</title>
+    <meta name="theme-color" content="#f3e6d4">
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #3d342c;
+        --muted: #75685d;
+        --paper: #fff9ef;
+        --beige: #f3e6d4;
+        --beige-2: #ead7bd;
+        --cream: #fffdf7;
+        --rose: #b27679;
+        --rose-soft: #ead0ce;
+        --leaf: #879579;
+        --gold: #c59a62;
+        --line: rgba(122, 98, 75, 0.2);
+        --shadow: 0 22px 70px rgba(91, 68, 48, 0.16);
+        --script: "Snell Roundhand", "Apple Chancery", "Segoe Script", "Brush Script MT", cursive;
+        --serif: Georgia, "Times New Roman", serif;
+        --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+      }
+
+      body {
+        margin: 0;
+        font-family: var(--serif);
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 18% 12%, rgba(178, 118, 121, 0.13), transparent 25rem),
+          radial-gradient(circle at 86% 8%, rgba(135, 149, 121, 0.13), transparent 22rem),
+          linear-gradient(135deg, #fff8ed, var(--beige) 48%, #f8ead9);
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+
+      body::before,
+      body::after {
+        content: "";
+        position: fixed;
+        z-index: 0;
+        width: 15rem;
+        height: 15rem;
+        pointer-events: none;
+        opacity: 0.38;
+        background:
+          radial-gradient(ellipse at 50% 18%, transparent 0 33%, rgba(178, 118, 121, 0.5) 34% 42%, transparent 43%),
+          radial-gradient(ellipse at 18% 55%, transparent 0 34%, rgba(135, 149, 121, 0.45) 35% 43%, transparent 44%),
+          radial-gradient(ellipse at 76% 56%, transparent 0 34%, rgba(197, 154, 98, 0.38) 35% 43%, transparent 44%);
+        filter: blur(0.2px);
+      }
+
+      body::before {
+        top: -3.4rem;
+        left: -4rem;
+        transform: rotate(-20deg);
+      }
+
+      body::after {
+        right: -4.2rem;
+        bottom: -3.8rem;
+        transform: rotate(155deg);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      button {
+        font: inherit;
+      }
+
+      .app {
+        min-height: 100svh;
+        position: relative;
+        z-index: 1;
+        display: grid;
+        place-items: center;
+        padding: max(1.1rem, env(safe-area-inset-top)) 1rem max(1rem, env(safe-area-inset-bottom));
+      }
+
+      .book {
+        width: min(100%, 460px);
+        min-height: min(760px, calc(100svh - 2.1rem));
+        position: relative;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        padding: 1.05rem;
+        border: 1px solid rgba(122, 98, 75, 0.16);
+        border-radius: 22px;
+        background:
+          linear-gradient(180deg, rgba(255, 253, 247, 0.94), rgba(255, 248, 237, 0.97)),
+          radial-gradient(circle at 20% 0%, rgba(178, 118, 121, 0.13), transparent 15rem);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .book::before,
+      .book::after {
+        content: "";
+        position: absolute;
+        width: 7.5rem;
+        height: 7.5rem;
+        opacity: 0.38;
+        pointer-events: none;
+        background:
+          radial-gradient(ellipse at 50% 12%, rgba(178, 118, 121, 0.42) 0 18%, transparent 19%),
+          radial-gradient(ellipse at 12% 58%, rgba(135, 149, 121, 0.4) 0 17%, transparent 18%),
+          radial-gradient(ellipse at 82% 58%, rgba(197, 154, 98, 0.34) 0 17%, transparent 18%),
+          radial-gradient(circle at 50% 52%, rgba(122, 98, 75, 0.16) 0 10%, transparent 11%);
+      }
+
+      .book::before {
+        top: 0.7rem;
+        right: -2rem;
+        transform: rotate(22deg);
+      }
+
+      .book::after {
+        left: -2.2rem;
+        bottom: 5.2rem;
+        transform: rotate(202deg);
+      }
+
+      .topbar {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        min-height: 2.2rem;
+      }
+
+      .date {
+        color: var(--rose);
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .count {
+        color: var(--muted);
+        font-family: var(--sans);
+        font-size: 0.76rem;
+      }
+
+      .chapter {
+        display: none;
+        position: relative;
+        z-index: 2;
+        align-self: center;
+        padding: 1.15rem 0.25rem 1.4rem;
+        animation: pageIn 420ms ease both;
+      }
+
+      .chapter.active {
+        display: block;
+      }
+
+      @keyframes pageIn {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .kicker {
+        margin-bottom: 0.55rem;
+        color: var(--gold);
+        font-family: var(--sans);
+        font-size: 0.74rem;
+        font-weight: 850;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2 {
+        margin-bottom: 0.95rem;
+        font-family: var(--script);
+        font-weight: 500;
+        letter-spacing: 0;
+      }
+
+      h1 {
+        max-width: 9ch;
+        font-size: clamp(3.9rem, 18vw, 5.8rem);
+        line-height: 0.84;
+      }
+
+      h2 {
+        font-size: clamp(3rem, 15vw, 4.8rem);
+        line-height: 0.86;
+      }
+
+      .poem {
+        max-width: 32rem;
+        margin-bottom: 0.95rem;
+        color: var(--muted);
+        font-size: 1.08rem;
+        line-height: 1.72;
+      }
+
+      .poem strong {
+        color: var(--ink);
+        font-weight: 700;
+      }
+
+      .mark {
+        display: inline-block;
+        margin-top: 0.5rem;
+        color: var(--rose);
+        font-family: var(--script);
+        font-size: 2.2rem;
+        line-height: 1;
+      }
+
+      .moments,
+      .reasons,
+      .tokens {
+        display: grid;
+        gap: 0.75rem;
+        margin-top: 1.1rem;
+      }
+
+      .moment,
+      .reason {
+        padding: 0.9rem;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: rgba(255, 253, 247, 0.7);
+        backdrop-filter: blur(8px);
+      }
+
+      .moment h3,
+      .reason h3 {
+        margin-bottom: 0.28rem;
+        color: var(--ink);
+        font-family: var(--sans);
+        font-size: 0.96rem;
+        line-height: 1.22;
+      }
+
+      .moment p,
+      .reason p {
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      .number {
+        display: inline-flex;
+        width: 1.8rem;
+        height: 1.8rem;
+        align-items: center;
+        justify-content: center;
+        margin-right: 0.35rem;
+        border-radius: 50%;
+        color: #fffaf2;
+        background: var(--rose);
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        font-weight: 800;
+        vertical-align: middle;
+      }
+
+      .quote {
+        margin: 1rem 0 0;
+        padding: 1rem;
+        border-left: 4px solid var(--rose);
+        border-radius: 0 16px 16px 0;
+        color: var(--ink);
+        background: rgba(255, 253, 247, 0.74);
+        font-size: 1.05rem;
+        line-height: 1.65;
+      }
+
+      .tokens {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .token {
+        min-height: 3.35rem;
+        display: grid;
+        place-items: center;
+        padding: 0.7rem;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: var(--ink);
+        background: rgba(255, 253, 247, 0.72);
+        font-family: var(--sans);
+        font-size: 0.93rem;
+        text-align: center;
+      }
+
+      .signature {
+        margin-top: 1.35rem;
+        color: var(--ink);
+        font-family: var(--script);
+        font-size: clamp(3rem, 15vw, 4.7rem);
+        line-height: 0.9;
+      }
+
+      .footer {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      .progress {
+        display: flex;
+        justify-content: center;
+        gap: 0.38rem;
+      }
+
+      .dot {
+        width: 0.42rem;
+        height: 0.42rem;
+        border-radius: 50%;
+        background: rgba(117, 104, 93, 0.28);
+      }
+
+      .dot.active {
+        width: 1.3rem;
+        border-radius: 999px;
+        background: var(--rose);
+      }
+
+      .actions {
+        display: grid;
+        grid-template-columns: 3rem 1fr;
+        gap: 0.65rem;
+      }
+
+      .back,
+      .next {
+        min-height: 3.25rem;
+        border: 1px solid rgba(122, 98, 75, 0.22);
+        border-radius: 999px;
+        cursor: pointer;
+      }
+
+      .back {
+        color: var(--muted);
+        background: rgba(255, 253, 247, 0.64);
+        font-family: var(--sans);
+        font-size: 1rem;
+      }
+
+      .next {
+        padding: 0 1rem;
+        color: #fffaf2;
+        background: linear-gradient(135deg, var(--rose), #9b6b58);
+        box-shadow: 0 12px 28px rgba(178, 118, 121, 0.24);
+        font-family: var(--sans);
+        font-size: 0.92rem;
+        font-weight: 800;
+      }
+
+      @media (max-height: 720px) {
+        .book {
+          min-height: calc(100svh - 1.4rem);
+        }
+
+        .chapter {
+          padding-block: 0.55rem;
+        }
+
+        h1 {
+          font-size: clamp(3.4rem, 15vw, 4.8rem);
+        }
+
+        h2 {
+          font-size: clamp(2.6rem, 12vw, 4rem);
+        }
+
+        .poem {
+          font-size: 1rem;
+          line-height: 1.58;
+        }
+
+        .moment,
+        .reason {
+          padding: 0.72rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="app">
+      <section class="book" aria-live="polite">
+        <div class="topbar">
+          <div class="date">Monthiversary · 29 May to 28 June</div>
+          <div class="count" id="count">1 / 11</div>
+        </div>
+
+        <article class="chapter active">
+          <p class="kicker">One month since our first hello</p>
+          <h1>For Akshu</h1>
+          <p class="poem">
+            You asked me many times why I am okay, why I am a yes for you.
+          </p>
+          <p class="poem">
+            I skipped it many times. Today, on our Monthiversary, this is my answer.
+          </p>
+          <p class="poem">
+            <strong>A story I want to remember.</strong>
+          </p>
+          <span class="mark">B</span>
+        </article>
+
+        <article class="chapter">
+          <p class="kicker">The answer begins</p>
+          <h2>Why you are Bharadwaj's Aakanksha</h2>
+          <p class="poem">
+            Because you did not arrive like a checkbox.
+          </p>
+          <p class="poem">
+            You arrived like warmth. Slowly, clearly, then all at once.
+          </p>
+          <p class="poem">
+            You became the hope I was scared to ask for.
+          </p>
+        </article>
+
+        <article class="chapter">
+          <p class="kicker">The beginning</p>
+          <h2>How it became us</h2>
+          <p class="poem">
+            Our story did not become special because of one big dramatic moment.
+          </p>
+          <p class="poem">
+            It became special because the small moments kept adding up.
+          </p>
+          <div class="moments">
+            <div class="moment">
+              <h3><span class="number">01</span>The call that did not feel like four hours</h3>
+              <p>We began formally, then became comfortable, then forgot the time.</p>
+            </div>
+            <div class="moment">
+              <h3><span class="number">02</span>The first meet I wanted to remember</h3>
+              <p>I brought a small gift because I already felt this might become important.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="chapter">
+          <p class="kicker">The moments</p>
+          <h2>The moments that stayed</h2>
+          <div class="moments">
+            <div class="moment">
+              <h3><span class="number">03</span>The honesty that did not scare you away</h3>
+              <p>You listened, asked, understood, and did not reduce me to one risk.</p>
+            </div>
+            <div class="moment">
+              <h3><span class="number">04</span>The concert where I held your hand</h3>
+              <p>It felt simple, natural, and accepted.</p>
+            </div>
+            <div class="moment">
+              <h3><span class="number">05</span>The video calls that became daily</h3>
+              <p>Some days long, some days small. But somehow, seeing you became part of my day.</p>
+            </div>
+            <div class="moment">
+              <h3><span class="number">06</span>The day you said yes</h3>
+              <p>Not just to a match, but to the possibility of us.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="chapter">
+          <p class="kicker">The change</p>
+          <h2>What changed for me</h2>
+          <p class="poem">
+            For years, I was used to giving affection and waiting for it to come back.
+          </p>
+          <p class="poem">
+            With you, for the first time, I am experiencing what it feels like to be on the receiving side too.
+          </p>
+          <p class="poem">
+            That is not a small thing for me. It is one of the biggest reasons you feel right.
+          </p>
+        </article>
+
+        <article class="chapter">
+          <p class="kicker">The reasons</p>
+          <h2>Why I like you</h2>
+          <div class="reasons">
+            <div class="reason">
+              <h3>You know how to love and own people.</h3>
+              <p>The way you value your parents and brother makes me believe you can own my family too.</p>
+            </div>
+            <div class="reason">
+              <h3>You made me feel safe with honesty.</h3>
+              <p>You listened to my truth, shared yours, and made commitment feel like a clean beginning.</p>
+            </div>
+            <div class="reason">
+              <h3>You are capable and determined.</h3>
+              <p>CA finals, work, growth, pressure. You fight difficult things with quiet strength.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="chapter">
+          <p class="kicker">The balance</p>
+          <h2>The way we balance</h2>
+          <div class="reasons">
+            <div class="reason">
+              <h3>You are serious about growth.</h3>
+              <p>You want to learn tougher roles, grow into leadership, study more, and build your place.</p>
+            </div>
+            <div class="reason">
+              <h3>You bring strengths I do not have.</h3>
+              <p>Finance, investments, tax, practical money decisions. I respect that mind.</p>
+            </div>
+            <div class="reason">
+              <h3>You leave space for me to be useful too.</h3>
+              <p>You say small planning confuses you. I can be your person there.</p>
+            </div>
+            <div class="reason">
+              <h3>You value me as a person.</h3>
+              <p>You try to understand what I do, how I think, why I do things, and what made me who I am.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="chapter">
+          <p class="kicker">The life ahead</p>
+          <h2>The life I can see</h2>
+          <p class="poem">
+            Emotional attachment. Family time. Honeymoon years. Kids later. A home filled with care.
+          </p>
+          <p class="poem">
+            Food, travel, pets, occasional plans, social life, and memories outside routine.
+          </p>
+          <p class="poem">
+            Not the biggest reasons. But the kind of small reasons that make everyday life happier.
+          </p>
+        </article>
+
+        <article class="chapter">
+          <p class="kicker">The words I kept</p>
+          <h2>Your words stayed with me</h2>
+          <p class="poem">
+            You once told me things that I did not know how to receive quietly.
+          </p>
+          <blockquote class="quote">
+            You said I am smart by looks and by brain. Loving, romantic, practical, strong, not afraid of challenges.
+            You said I reached here by myself, and still have the mindset to achieve more.
+          </blockquote>
+        </article>
+
+        <article class="chapter">
+          <p class="kicker">The words that became ours</p>
+          <h2>Our little words</h2>
+          <p class="poem">
+            Some words are small. But for us, they carry a whole month.
+          </p>
+          <div class="tokens" aria-label="Shared memories">
+            <span class="token">Video call</span>
+            <span class="token">Concert</span>
+            <span class="token">Back Local Cafe</span>
+            <span class="token">Cabs</span>
+            <span class="token">Mr. Bharadwaj</span>
+            <span class="token">Galeezoda</span>
+            <span class="token">Kppp</span>
+          </div>
+        </article>
+
+        <article class="chapter">
+          <p class="kicker">Final page</p>
+          <h2>Happy Monthiversary, Akshu</h2>
+          <p class="poem">
+            I like the way you care, the way you think, the way you fight for people, the way you learn, and the way you make me feel chosen.
+          </p>
+          <p class="poem">
+            In this one month, you became important to me in a way I want to protect, understand, and grow.
+          </p>
+          <p class="poem">
+            Thank you for making me feel loved.
+          </p>
+          <div class="signature">Yours,<br>Mr. Bharadwaj..</div>
+        </article>
+
+        <div class="footer">
+          <div class="progress" id="progress" aria-label="Chapter progress"></div>
+          <div class="actions">
+            <button class="back" id="back" type="button" aria-label="Previous chapter">‹</button>
+            <button class="next" id="next" type="button">Begin the answer</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const chapters = Array.from(document.querySelectorAll(".chapter"));
+      const count = document.getElementById("count");
+      const progress = document.getElementById("progress");
+      const next = document.getElementById("next");
+      const back = document.getElementById("back");
+      const labels = [
+        "Begin the answer",
+        "But how did it become us?",
+        "Then came the moments...",
+        "And something changed in me",
+        "Why did you feel right?",
+        "There is more to us",
+        "The life I can see",
+        "Your words stayed too",
+        "Our little words",
+        "One last page",
+        "Begin again"
+      ];
+      let current = 0;
+
+      chapters.forEach(() => {
+        const dot = document.createElement("span");
+        dot.className = "dot";
+        progress.appendChild(dot);
+      });
+
+      const dots = Array.from(progress.children);
+
+      function render() {
+        chapters.forEach((chapter, index) => {
+          chapter.classList.toggle("active", index === current);
+        });
+        dots.forEach((dot, index) => {
+          dot.classList.toggle("active", index === current);
+        });
+        count.textContent = `${current + 1} / ${chapters.length}`;
+        back.disabled = current === 0;
+        back.style.opacity = current === 0 ? "0.38" : "1";
+        next.textContent = labels[current] || "Next chapter";
+      }
+
+      next.addEventListener("click", () => {
+        current = current === chapters.length - 1 ? 0 : current + 1;
+        render();
+      });
+
+      back.addEventListener("click", () => {
+        current = Math.max(0, current - 1);
+        render();
+      });
+
+      render();
+    </script>
+  </body>
+</html>
