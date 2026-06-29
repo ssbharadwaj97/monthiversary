@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Why You Are Bharadwaj's Aakanksha</title>
     <meta name="theme-color" content="#f3e6d4">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Inter:wght@400;600;700;800&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
       :root {
         color-scheme: light;
@@ -20,9 +23,9 @@
         --gold: #c59a62;
         --line: rgba(122, 98, 75, 0.2);
         --shadow: 0 22px 70px rgba(91, 68, 48, 0.16);
-        --script: "Snell Roundhand", "Apple Chancery", "Segoe Script", "Brush Script MT", cursive;
-        --serif: Georgia, "Times New Roman", serif;
-        --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --script: "Dancing Script", "Snell Roundhand", "Apple Chancery", "Segoe Script", cursive;
+        --serif: "Lora", Georgia, "Times New Roman", serif;
+        --sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       }
 
       * {
@@ -99,7 +102,7 @@
         min-height: min(760px, calc(100svh - 2.1rem));
         position: relative;
         display: grid;
-        grid-template-rows: auto 1fr auto;
+        grid-template-rows: auto minmax(0, 1fr) auto;
         padding: 1.05rem;
         border: 1px solid rgba(122, 98, 75, 0.16);
         border-radius: 22px;
@@ -116,7 +119,7 @@
         position: absolute;
         width: 7.5rem;
         height: 7.5rem;
-        opacity: 0.38;
+        opacity: 0.46;
         pointer-events: none;
         background:
           radial-gradient(ellipse at 50% 12%, rgba(178, 118, 121, 0.42) 0 18%, transparent 19%),
@@ -166,8 +169,11 @@
         display: none;
         position: relative;
         z-index: 2;
-        align-self: center;
+        align-self: stretch;
         padding: 1.15rem 0.25rem 1.4rem;
+        min-height: 0;
+        overflow-y: auto;
+        scrollbar-width: thin;
         animation: pageIn 420ms ease both;
       }
 
@@ -191,7 +197,7 @@
         color: var(--gold);
         font-family: var(--sans);
         font-size: 0.74rem;
-        font-weight: 850;
+        font-weight: 800;
         letter-spacing: 0.14em;
         text-transform: uppercase;
       }
@@ -206,13 +212,18 @@
 
       h1 {
         max-width: 9ch;
-        font-size: clamp(3.9rem, 18vw, 5.8rem);
+        font-size: clamp(3.5rem, 15vw, 5.1rem);
         line-height: 0.84;
       }
 
       h2 {
-        font-size: clamp(3rem, 15vw, 4.8rem);
-        line-height: 0.86;
+        font-size: clamp(2.65rem, 12vw, 4.15rem);
+        line-height: 0.9;
+      }
+
+      .final-title {
+        font-size: clamp(2.05rem, 8.6vw, 3.15rem);
+        line-height: 1.08;
       }
 
       .poem {
@@ -291,7 +302,7 @@
         margin: 1rem 0 0;
         padding: 1rem;
         border-left: 4px solid var(--rose);
-        border-radius: 0 16px 16px 0;
+        border-radius: 16px;
         color: var(--ink);
         background: rgba(255, 253, 247, 0.74);
         font-size: 1.05rem;
@@ -312,16 +323,18 @@
         color: var(--ink);
         background: rgba(255, 253, 247, 0.72);
         font-family: var(--sans);
-        font-size: 0.93rem;
+        font-size: 0.86rem;
+        line-height: 1.15;
         text-align: center;
+        white-space: nowrap;
       }
 
       .signature {
         margin-top: 1.35rem;
         color: var(--ink);
         font-family: var(--script);
-        font-size: clamp(3rem, 15vw, 4.7rem);
-        line-height: 0.9;
+        font-size: clamp(2.45rem, 11vw, 3.65rem);
+        line-height: 1.06;
       }
 
       .footer {
@@ -422,10 +435,10 @@
           <p class="kicker">One month since our first hello</p>
           <h1>For Akshu</h1>
           <p class="poem">
-            You asked me many times why I am okay, why I am a yes for you.
+            You asked me many times why it is a yes for me.
           </p>
           <p class="poem">
-            I skipped it many times. Today, on our Monthiversary, this is my answer.
+            I skipped the answer many times. Today, on our Monthiversary, this is my answer.
           </p>
           <p class="poem">
             <strong>A story I want to remember.</strong>
@@ -510,8 +523,8 @@
           <h2>Why I like you</h2>
           <div class="reasons">
             <div class="reason">
-              <h3>You know how to love and own people.</h3>
-              <p>The way you value your parents and brother makes me believe you can own my family too.</p>
+              <h3>You know how to love and hold people close.</h3>
+              <p>The way you value your parents and brother makes me believe you can hold my family close too.</p>
             </div>
             <div class="reason">
               <h3>You made me feel safe with honesty.</h3>
@@ -538,7 +551,7 @@
             </div>
             <div class="reason">
               <h3>You leave space for me to be useful too.</h3>
-              <p>You say small planning confuses you. I can be your person there.</p>
+              <p>You say everyday planning confuses you. I can be your person there.</p>
             </div>
             <div class="reason">
               <h3>You value me as a person.</h3>
@@ -557,7 +570,7 @@
             Food, travel, pets, occasional plans, social life, and memories outside routine.
           </p>
           <p class="poem">
-            Not the biggest reasons. But the kind of small reasons that make everyday life happier.
+            Not just the deep reasons. Even the everyday reasons make me feel we can be happy.
           </p>
         </article>
 
@@ -565,11 +578,14 @@
           <p class="kicker">The words I kept</p>
           <h2>Your words stayed with me</h2>
           <p class="poem">
-            You once told me things that I did not know how to receive quietly.
+            You once told me things that I did not know how to sit with quietly.
           </p>
           <blockquote class="quote">
-            You said I am smart by looks and by brain. Loving, romantic, practical, strong, not afraid of challenges.
-            You said I reached here by myself, and still have the mindset to achieve more.
+            Listen.. You are very charming person.. anybody will and can fall for u... U are everything what a girl wants in her life.
+            You are smart by looks and by brain also... U are a gentle man when a girl is around u. Antha nuvu chusukuntav.
+            Posses strong mentality.. Not afraid of challenges... So damn loving... So damn more romantic...
+            U have reached to this stage all by yourself.. this is not so easy.. ik previous generation doesnt appreciate that like it has to..
+            But according to me you have achieved a lot.. And have a strong mindset to achieve more... Any girl would fall for u!!!!
           </blockquote>
         </article>
 
@@ -581,28 +597,27 @@
           </p>
           <div class="tokens" aria-label="Shared memories">
             <span class="token">Video call</span>
-            <span class="token">Concert</span>
             <span class="token">Back Local Cafe</span>
             <span class="token">Cabs</span>
             <span class="token">Mr. Bharadwaj</span>
             <span class="token">Galeezoda</span>
-            <span class="token">Kppp</span>
+            <span class="token">Kp Darlingg</span>
           </div>
         </article>
 
         <article class="chapter">
           <p class="kicker">Final page</p>
-          <h2>Happy Monthiversary, Akshu</h2>
+          <h2 class="final-title">Happy Monthiversary, Akshu Bangaramm...</h2>
           <p class="poem">
             I like the way you care, the way you think, the way you fight for people, the way you learn, and the way you make me feel chosen.
           </p>
           <p class="poem">
-            In this one month, you became important to me in a way I want to protect, understand, and grow.
+            In this one month, you became important to me in a way I want to protect, understand, and grow with.
           </p>
           <p class="poem">
             Thank you for making me feel loved.
           </p>
-          <div class="signature">Yours,<br>Mr. Bharadwaj..</div>
+          <div class="signature">- Aakanksha's<br>Mr. Bharadwaj</div>
         </article>
 
         <div class="footer">
